@@ -65,6 +65,7 @@ lib/
 
 ## Demo Aplikasi
 
-![Demo TodoList](demo.gif)
+![Demo TodoList](https://github.com/saf-i2303/FocusList_pm/blob/main/iPhone-13-PRO-localhost-lxrblslhrg-yt9-ezgif.com-video-to-gif-converter.gif)
+
 
 
