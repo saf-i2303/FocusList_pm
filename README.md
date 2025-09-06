@@ -63,6 +63,8 @@ lib/
 ├─ add_todo_form.dart
 └─ todo_tile.dart
 
-## Dokumentasi 
+## Demo Aplikasi
+
+![Demo TodoList](demo.gif)
 
 
