@@ -133,12 +133,79 @@ class TodoItem extends StatelessWidget {
               const SizedBox(height: 6),
             ],
 
-            // Tombol delete
+            // Tombol delete + pop up konfirmasi
             Align(
               alignment: Alignment.bottomRight,
               child: IconButton(
                 icon: const Icon(Icons.delete, color: Colors.redAccent),
-                onPressed: onDelete,
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (ctx) {
+                      return AlertDialog(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        title: const Text(
+                          "Konfirmasi Hapus",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                        content: const Text(
+                          "Apakah Anda yakin ingin menghapus todo ini ?",
+                          style: TextStyle(fontSize: 14),
+                        ),
+                        actionsPadding:
+                            const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                        actions: [
+                          OutlinedButton(
+                            style: OutlinedButton.styleFrom(
+                              side: BorderSide(
+                                color: const Color.fromARGB(255, 11, 41, 53),
+                                width: 1.5,
+                              ),
+                              foregroundColor:
+                                  const Color.fromARGB(255, 11, 41, 53),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                            ),
+                            onPressed: () {
+                              Navigator.of(ctx).pop();
+                            },
+                            child: const Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 16, vertical: 8),
+                              child: Text("Batal"),
+                            ),
+                          ),
+                          ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  const Color.fromARGB(255, 11, 41, 53),
+                              foregroundColor: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                              elevation: 2,
+                            ),
+                            onPressed: () {
+                              Navigator.of(ctx).pop();
+                              onDelete();
+                            },
+                            child: const Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 16, vertical: 8),
+                              child: Text("Hapus"),
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
               ),
             ),
           ],
